@@ -2,4 +2,4 @@
 
 |   |   | 
 |---|---|
-|![](./Screenshots/Screenshot1.png)   | ![](./Screenshots/Screenshot2.png)  |
+|![](./Screenshots/Screenshot-1.png)   | ![](./Screenshots/Screenshot-2.png)  |
