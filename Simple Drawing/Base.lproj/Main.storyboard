@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Drawing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Simple_Drawing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Simple_Drawing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-Mh-aOF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rrT-mP-t7d">
                                 <rect key="frame" x="5" y="612" width="365" height="50"/>
                                 <subviews>
@@ -32,6 +36,9 @@
                                             <constraint firstAttribute="width" secondItem="0kW-Yf-jgf" secondAttribute="height" multiplier="1:1" id="eAf-va-aDz"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="blue"/>
+                                        <connections>
+                                            <action selector="blueTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNb-2V-bgE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcA-Qr-XhL">
                                         <rect key="frame" x="63.5" y="1" width="48" height="48"/>
@@ -40,6 +47,9 @@
                                             <constraint firstAttribute="height" constant="48" id="pGX-hr-ll9"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="green"/>
+                                        <connections>
+                                            <action selector="greenTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0K-3Y-Ho3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRS-6R-Oar">
                                         <rect key="frame" x="127" y="1" width="48" height="48"/>
@@ -48,6 +58,9 @@
                                             <constraint firstAttribute="height" constant="48" id="FeH-Bc-unR"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="red"/>
+                                        <connections>
+                                            <action selector="redTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HSs-ob-A0K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HF-WS-Odl">
                                         <rect key="frame" x="190" y="1" width="48" height="48"/>
@@ -56,6 +69,9 @@
                                             <constraint firstAttribute="height" constant="48" id="rEp-AE-adb"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="yellow"/>
+                                        <connections>
+                                            <action selector="yellowTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="utP-Ch-raE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svR-Za-5MD">
                                         <rect key="frame" x="253.5" y="1" width="48" height="48"/>
@@ -64,6 +80,9 @@
                                             <constraint firstAttribute="height" constant="48" id="nxF-UO-3t9"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="random"/>
+                                        <connections>
+                                            <action selector="randomTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xSK-Rf-tXA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU0-MV-LFS">
                                         <rect key="frame" x="317" y="1" width="48" height="48"/>
@@ -73,7 +92,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="settings"/>
                                         <connections>
-                                            <segue destination="GaF-IN-wJg" kind="show" id="7Re-9m-Tax"/>
+                                            <segue destination="GaF-IN-wJg" kind="show" identifier="drawingToSettingsSegue" id="7Re-9m-Tax"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,11 +104,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="rrT-mP-t7d" secondAttribute="bottom" constant="5" id="6ur-7i-XC5"/>
+                            <constraint firstItem="AoL-Mh-aOF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7Qp-FS-Sap"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AoL-Mh-aOF" secondAttribute="bottom" id="8Hh-Gi-vvi"/>
                             <constraint firstAttribute="trailing" secondItem="rrT-mP-t7d" secondAttribute="trailing" constant="5" id="FOx-xf-UdO"/>
+                            <constraint firstAttribute="trailing" secondItem="AoL-Mh-aOF" secondAttribute="trailing" id="ZoY-Oz-1Mf"/>
                             <constraint firstItem="rrT-mP-t7d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="kko-Uy-yLD"/>
+                            <constraint firstItem="AoL-Mh-aOF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rAD-VT-Jni"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4cj-V6-zpy"/>
+                    <connections>
+                        <outlet property="buttonsStackView" destination="rrT-mP-t7d" id="OCq-bi-HEb"/>
+                        <outlet property="imageView" destination="AoL-Mh-aOF" id="HrU-zy-Qln"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,13 +133,33 @@
                     <view key="view" contentMode="scaleToFill" id="sIz-Ge-IIT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tK-Cj-nZw">
+                                <rect key="frame" x="147" y="99" width="81" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Share Art"/>
+                                <connections>
+                                    <action selector="shareArtTapped:" destination="GaF-IN-wJg" eventType="touchUpInside" id="wiF-Jk-c9o"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2tK-Cj-nZw" firstAttribute="top" secondItem="Ie1-JJ-OFa" secondAttribute="bottom" constant="35" id="6Yr-Ui-YmL"/>
+                            <constraint firstItem="2tK-Cj-nZw" firstAttribute="centerX" secondItem="sIz-Ge-IIT" secondAttribute="centerX" id="a9V-OL-WdV"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="Lmq-Hy-jlh"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Lmq-Hy-jlh">
+                        <barButtonItem key="rightBarButtonItem" title="Erase" id="cvJ-LP-hqr">
+                            <connections>
+                                <action selector="eraseTapped:" destination="GaF-IN-wJg" id="RsS-BI-Ers"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfg-VG-hmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="123"/>
+            <point key="canvasLocation" x="1941.5999999999999" y="122.78860569715144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p2s-Ik-no4">

@@ -10,19 +10,22 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    weak var drawingVC : DrawingViewController? = nil;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false;
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func eraseTapped(_ sender: UIBarButtonItem) {
+        self.drawingVC?.erase();
+        self.navigationController?.popToRootViewController(animated: true);
     }
-    */
-
+    @IBAction func shareArtTapped(_ sender: UIButton) {
+        if let drawing = self.drawingVC?.imageView.image{
+            let activityVC = UIActivityViewController(activityItems: [drawing], applicationActivities: nil);
+            self.present(activityVC, animated: true, completion: nil);
+        }
+    }
+    
 }
