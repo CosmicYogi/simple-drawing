@@ -18,6 +18,10 @@ class DrawingViewController: UIViewController {
     var blue : CGFloat = 0.0;
     var moveCount = 0;
     var lastPoint = CGPoint.zero;
+    
+    var brushSize : CGFloat = 5.0;
+    var inRainbowMode = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(DrawingViewController.appBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive , object: nil);
@@ -68,9 +72,17 @@ class DrawingViewController: UIViewController {
         //CGContextMoveToPoint(context, self.lastPoint.x, self.lastPoint.y);
         context?.move(to: firstPoint);
         context?.addLine(to: secondPoint);
+        if inRainbowMode{
+            randomTapped(UIButton());
+        } else{
+            self.red = 0;
+            self.green = 0;
+            self.blue = 0;
+        }
         context?.setStrokeColor(red: self.red, green: self.green, blue: self.blue, alpha: 1);
-        context?.setLineWidth(15.0)
-        context?.setLineCap(.round)
+        context?.setLineWidth(brushSize);
+        context?.setLineCap(.round);
+
         context?.strokePath();
         
         

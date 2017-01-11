@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -142,11 +143,45 @@
                                     <action selector="shareArtTapped:" destination="GaF-IN-wJg" eventType="touchUpInside" id="wiF-Jk-c9o"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainbow Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJe-fq-JIO">
+                                <rect key="frame" x="16" y="157" width="140" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brush Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc2-a9-5TK">
+                                <rect key="frame" x="16" y="202.5" width="99.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KB4-r8-dTt">
+                                <rect key="frame" x="310" y="146" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchTapped:" destination="GaF-IN-wJg" eventType="valueChanged" id="hqt-Rn-h1i"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="6R3-XY-OSA">
+                                <rect key="frame" x="14" y="238" width="347" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="GaF-IN-wJg" eventType="valueChanged" id="IoA-cQ-Q1R"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KB4-r8-dTt" firstAttribute="baseline" secondItem="PJe-fq-JIO" secondAttribute="baseline" id="4rT-Ln-73t"/>
+                            <constraint firstItem="PJe-fq-JIO" firstAttribute="top" secondItem="2tK-Cj-nZw" secondAttribute="bottom" constant="23" id="66g-Ng-g1N"/>
                             <constraint firstItem="2tK-Cj-nZw" firstAttribute="top" secondItem="Ie1-JJ-OFa" secondAttribute="bottom" constant="35" id="6Yr-Ui-YmL"/>
+                            <constraint firstItem="PJe-fq-JIO" firstAttribute="leading" secondItem="sIz-Ge-IIT" secondAttribute="leadingMargin" id="M6V-Ur-Nzc"/>
+                            <constraint firstItem="6R3-XY-OSA" firstAttribute="trailing" secondItem="sIz-Ge-IIT" secondAttribute="trailingMargin" id="Rb5-ds-iXk"/>
+                            <constraint firstItem="xc2-a9-5TK" firstAttribute="leading" secondItem="PJe-fq-JIO" secondAttribute="leading" id="SEo-uu-LsA"/>
                             <constraint firstItem="2tK-Cj-nZw" firstAttribute="centerX" secondItem="sIz-Ge-IIT" secondAttribute="centerX" id="a9V-OL-WdV"/>
+                            <constraint firstItem="6R3-XY-OSA" firstAttribute="centerX" secondItem="sIz-Ge-IIT" secondAttribute="centerX" id="dkk-EP-leO"/>
+                            <constraint firstItem="6R3-XY-OSA" firstAttribute="top" secondItem="xc2-a9-5TK" secondAttribute="bottom" constant="10" id="kJg-FF-Dxg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KB4-r8-dTt" secondAttribute="trailing" id="paq-x8-5Vc"/>
+                            <constraint firstItem="6R3-XY-OSA" firstAttribute="leading" secondItem="sIz-Ge-IIT" secondAttribute="leadingMargin" id="qef-DP-CE0"/>
+                            <constraint firstItem="xc2-a9-5TK" firstAttribute="top" secondItem="PJe-fq-JIO" secondAttribute="bottom" constant="20" id="w7Y-od-F7w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Lmq-Hy-jlh">

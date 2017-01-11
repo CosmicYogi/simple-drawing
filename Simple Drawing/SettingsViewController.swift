@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController{
 
     weak var drawingVC : DrawingViewController? = nil;
     
@@ -26,6 +26,19 @@ class SettingsViewController: UIViewController {
             let activityVC = UIActivityViewController(activityItems: [drawing], applicationActivities: nil);
             self.present(activityVC, animated: true, completion: nil);
         }
+    }
+    
+    @IBAction func switchTapped(_ sender: UISwitch) {
+        print(sender.state);
+        if sender.isOn{
+            self.drawingVC?.inRainbowMode = true;
+        } else{
+            self.drawingVC?.inRainbowMode = false;
+        }
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        self.drawingVC?.brushSize = CGFloat(sender.value);
     }
     
 }
