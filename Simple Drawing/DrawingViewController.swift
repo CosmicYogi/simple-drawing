@@ -74,11 +74,8 @@ class DrawingViewController: UIViewController {
         context?.addLine(to: secondPoint);
         if inRainbowMode{
             randomTapped(UIButton());
-        } else{
-            self.red = 0;
-            self.green = 0;
-            self.blue = 0;
         }
+        
         context?.setStrokeColor(red: self.red, green: self.green, blue: self.blue, alpha: 1);
         context?.setLineWidth(brushSize);
         context?.setLineCap(.round);

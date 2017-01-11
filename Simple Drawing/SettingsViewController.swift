@@ -44,6 +44,9 @@ class SettingsViewController: UIViewController{
             self.drawingVC?.inRainbowMode = true;
         } else{
             self.drawingVC?.inRainbowMode = false;
+            drawingVC?.red = 0;
+            drawingVC?.green = 0;
+            drawingVC?.blue = 0;
         }
     }
     
