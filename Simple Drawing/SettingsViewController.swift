@@ -12,9 +12,19 @@ class SettingsViewController: UIViewController{
 
     weak var drawingVC : DrawingViewController? = nil;
     
+    var brushSize : Float?
+    var inRainbowMode: Bool?
+    @IBOutlet weak var rainbowSwitch: UISwitch!
+    @IBOutlet weak var slider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false;
+        if brushSize != nil{
+            slider.value = brushSize!;
+        }
+        if inRainbowMode != nil{
+            rainbowSwitch.setOn(inRainbowMode!, animated: false);
+        }
     }
 
     @IBAction func eraseTapped(_ sender: UIBarButtonItem) {

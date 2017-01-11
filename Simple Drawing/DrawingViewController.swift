@@ -94,6 +94,8 @@ class DrawingViewController: UIViewController {
         if segue.identifier == "drawingToSettingsSegue" {
             let settingsVC = segue.destination as! SettingsViewController;
             settingsVC.drawingVC = self;
+            settingsVC.brushSize = Float(self.brushSize);
+            settingsVC.inRainbowMode = self.inRainbowMode;
         }
             
     }

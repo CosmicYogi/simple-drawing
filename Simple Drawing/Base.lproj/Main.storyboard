@@ -191,6 +191,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="rainbowSwitch" destination="KB4-r8-dTt" id="RSM-GA-D1a"/>
+                        <outlet property="slider" destination="6R3-XY-OSA" id="QKZ-Qj-daX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfg-VG-hmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
